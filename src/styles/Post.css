@@ -1,0 +1,141 @@
+.post-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .post-container:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-info-container {
+    margin-left: 10px; 
+  }
+  
+  .image {
+    width: 50px;
+    height: 50px; 
+    border-radius: 50%;
+    object-fit: cover; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  }
+  
+  .user-info {
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #1a1a1a;
+    font-size: 16px;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #65676b;
+    margin-left: 5px;
+  }
+  
+  .content {
+    margin: 10px 0;
+    line-height: 1.5; /* Slightly increased line height for readability */
+    color: #333;
+  }
+  
+  .video {
+    width: 300px;         
+    height: 400px;  
+    aspect-ratio: 16/9;  
+    margin-top: 10px;
+    border-radius: 8px; 
+    border: none;        
+    max-height: 315px;  
+  }
+  
+  .likes {
+    font-weight: bold;
+  }
+  
+  .comment {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #1a1a1a;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .comment strong {
+    margin-right: 5px;
+    color: #1877f2;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px; 
+    justify-content: space-between;
+  }
+  
+  .button {
+    display: flex;
+    align-items: center; 
+    border: none;
+    background: none;
+    color: #1877f2;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+    padding: 5px 10px; 
+  }
+  
+  .button {
+    background-color: white;
+    border: none;
+    color: black; 
+    cursor: pointer;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px; 
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .button.liked {
+    color: blue;
+  }
+  
+  .button i {
+    margin-right: 5px; 
+  }
+  
+  .input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-top: 5px;
+    font-size: 14px;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #1877f2;
+  }
+  
+  .comment-button {
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  .user-images {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .user-image {
+    width: 40px;
+    height: 40px; 
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1877f2; 
+  }

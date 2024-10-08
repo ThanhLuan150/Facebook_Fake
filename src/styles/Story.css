@@ -1,0 +1,122 @@
+.story-container {
+    display: flex;
+    margin: 10px 0;
+    overflow-x: auto;
+    position: relative; /* To contain the create story button */
+  }
+  
+  .story-box {
+    position: relative;
+    width: 120px;
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .story-box:hover {
+    cursor: pointer;
+  }
+  
+  .story-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .user-avatar {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .user-name {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    color: white;
+    font-weight: bold;
+    z-index: 2;
+    font-size: 12px;
+  }
+  
+  .create-story-button {
+    width: 120px; 
+    height: 200px; 
+    border-radius: 10px;
+    background-color: #42b72a; 
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    margin-right: 10px; 
+    position: relative; 
+    overflow: hidden; 
+  }
+  
+  .create-story-button:hover {
+    background-color: #36a420; 
+  }
+  
+  .create-story-icon {
+    margin-bottom: 5px; 
+  }
+  
+
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  .modal-button {
+    background-color: #42b72a; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px; 
+    font-size: 16px;
+    cursor: pointer; 
+    margin: 5px; 
+    transition: background-color 0.3s, transform 0.2s; 
+  
+   
+  }
+  .modal-button:hover {
+    background-color: #36a420; 
+    transform: scale(1.05); 
+  }
+  
+  .modal-button:focus {
+    outline: none; 
+  }
+  
+  .modal-content {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    max-width: 90%; 
+  }
+  
+  .modal-image {
+    max-width: 80%; 
+    max-height: 80vh;
+    border-radius: 10px;
+  }
+  
