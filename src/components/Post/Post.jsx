@@ -1,22 +1,25 @@
 import React, { useState } from "react";
 import "../../styles/Post.css";
-import CommentModal from "../Comments/CommentModal";
 
 const Post = ({ post, onNewPost }) => {
   const [likes, setLikes] = useState(post.likes);
   const [comments, setComments] = useState(post.comments || []);
-  const [modalOpen, setModalOpen] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
+  const [commentInputVisible, setCommentInputVisible] = useState(false);
+  const [commentText, setCommentText] = useState("");
 
   const handleLike = () => {
     setLikes(isLiked ? likes - 1 : likes + 1);
     setIsLiked(!isLiked);
   };
 
-  const handleCommentSubmit = ({ comment, image }) => {
-    setComments([...comments, { user: "You", text: comment, image }]);
+  const handleCommentSubmit = () => {
+    if (commentText.trim()) {
+      setComments([...comments, { user: "You", comment: commentText }]);
+      setCommentText(""); // Clear input
+      setCommentInputVisible(false); // Hide input after submitting
+    }
   };
-  
 
   return (
     <div className="post-container">
@@ -43,9 +46,12 @@ const Post = ({ post, onNewPost }) => {
           className={`button ${isLiked ? "liked" : ""}`}
           onClick={handleLike}
         >
-          <i className="fas fa-thumbs-up"></i> {isLiked ? "Like" : "Like"}
+          <i className="fas fa-thumbs-up"></i> {isLiked ? "Liked" : "Like"}
         </button>
-        <button className="button" onClick={() => setModalOpen(true)}>
+        <button
+          className="button"
+          onClick={() => setCommentInputVisible(!commentInputVisible)}
+        >
           <i className="fas fa-comment"></i> Comment
         </button>
         <button className="button">
@@ -53,32 +59,32 @@ const Post = ({ post, onNewPost }) => {
         </button>
       </div>
 
+      {commentInputVisible && (
+        <div className="comment-input-container">
+          <input
+            type="text"
+            className="comment-input"
+            value={commentText}
+            onChange={(e) => setCommentText(e.target.value)}
+            placeholder="Write a comment..."
+          />
+          <button  onClick={handleCommentSubmit} className="button1">
+            Post
+          </button>
+        </div>
+      )}
+
       {comments.length > 0 && (
         <div className="comments-container">
           {comments.map((comment, index) => (
             <div className="comment" key={index}>
-              {comment.image && (
-                <img
-                  className="user-image"
-                  src={comment.image}
-                  alt={`${comment.user}'s profile`}
-                />
-              )}
               <div className="comment-text">
-                <strong style={{ color: '#000000' }}>{comment.user}:</strong> {comment.comment}
+                <strong>{comment.user}:</strong> {comment.comment}
               </div>
             </div>
           ))}
         </div>
       )}
-
-      <CommentModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onSubmit={handleCommentSubmit}
-        setModalOpen={setModalOpen}
-        imageUrl="https://scontent.fdad3-5.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=A9yMFZhP9ooQ7kNvgFFxsXs&_nc_ht=scontent.fdad3-5.fna&_nc_gid=AdZPsl1-lwr_XSomyZRoy8O&oh=00_AYApB8YbdFSqUTSr_LoeTCuByk9FM7zv-HwvzpNJylIQ7w&oe=672CB87A" 
-      />
     </div>
   );
 };

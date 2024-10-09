@@ -1,6 +1,6 @@
 // CommentModal.js
 import React, { useState } from "react";
-import "../../styles/CommentModal.css"; 
+import "../../styles/Comment.css"; 
 
 const CommentModal = ({ isOpen, onClose, onSubmit ,imageUrl ,setModalOpen}) => {
   const [comment, setComment] = useState("");
@@ -33,7 +33,7 @@ const CommentModal = ({ isOpen, onClose, onSubmit ,imageUrl ,setModalOpen}) => {
         </div>
      
         <div className="modal-actions">
-          <button onClick={handleSubmit}>Send</button>
+          <button className="button2" onClick={handleSubmit}>Send</button>
           <button onClick={resetData}>Cancel</button>
         </div>
       </div>
